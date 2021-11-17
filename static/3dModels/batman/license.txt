@@ -1,0 +1,11 @@
+Model Information:
+* title:	Batmobile Batman
+* source:	https://sketchfab.com/3d-models/batmobile-batman-34b64dc9f1264650b537ec9bccb48949
+* author:	Ghostface (https://sketchfab.com/ghostface1996)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Batmobile Batman" (https://sketchfab.com/3d-models/batmobile-batman-34b64dc9f1264650b537ec9bccb48949) by Ghostface (https://sketchfab.com/ghostface1996) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

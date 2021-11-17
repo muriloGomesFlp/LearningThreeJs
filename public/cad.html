@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="../assets/css/adminlte.min.css">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="../assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!--Dropzone-->
+    <link rel="stylesheet" href="../assets/css/dropzone.min.css">
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -96,18 +99,17 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="./cad.html" class="nav-link active">
-                                        <i class="far fa-circle nav-icon"></i>
+                                    <a href="./cad.html" class="nav-link ">
+                                        <i class="fas fa-plus nav-icon"></i>
                                         <p>Cadastrar</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="./viewModel.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
+                                        <i class="fas fa-eye nav-icon"></i>
                                         <p>Visualizar</p>
                                     </a>
-                                </li>
-                                
+                                </li>                                
                             </ul>
                         </li>
                     </ul>
@@ -135,18 +137,82 @@
                 </div><!-- /.container-fluid -->
               </section>
             <section class="content">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Modelos</h3>
+                <div class="row">
+                    <div class="col-md-12">
+                      <div class="card card-default">
+                        <div class="card-header">
+                          <h3 class="card-title">Enviar Modelo 3D <small><em>Enviar apenas arquivos *.glb e *.gltf.</em> Em caso de gltf adicionar todo o diretório</small></h3>
+                        </div>
+                        <div class="card-body">
+                          <div id="actions" class="row">
+                            <div class="col-lg-6">
+                              <div class="btn-group w-100">
+                                <span class="btn btn-success col fileinput-button">
+                                  <i class="fas fa-plus"></i>
+                                  <span>Adicionar modelos</span>
+                                </span>
+                                <button type="submit" class="btn btn-primary col start">
+                                  <i class="fas fa-upload"></i>
+                                  <span>Enviar</span>
+                                </button>
+                                <button type="reset" class="btn btn-warning col cancel">
+                                  <i class="fas fa-times-circle"></i>
+                                  <span>Cancelar Envio</span>
+                                </button>
+                              </div>
+                            </div>
+                            <div class="col-lg-6 d-flex align-items-center">
+                              <div class="fileupload-process w-100">
+                                <div id="total-progress" class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                                  <div class="progress-bar progress-bar-success" style="width:0%;" data-dz-uploadprogress></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="table table-striped files" id="previews">
+                            <div id="template" class="row mt-2">
+                              <div class="col-auto">
+                                  <span class="preview"><img src="data:," alt="" data-dz-thumbnail /></span>
+                              </div>
+                              <div class="col d-flex align-items-center">
+                                  <p class="mb-0">
+                                    <span class="lead" data-dz-name></span>
+                                    (<span data-dz-size></span>)
+                                  </p>
+                                  <strong class="error text-danger" data-dz-errormessage></strong>
+                              </div>
+                              <div class="col-4 d-flex align-items-center">
+                                  <div class="progress progress-striped active w-100" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                                    <div class="progress-bar progress-bar-success" style="width:0%;" data-dz-uploadprogress></div>
+                                  </div>
+                              </div>
+                              <div class="col-auto d-flex align-items-center">
+                                <div class="btn-group">
+                                  <button class="btn btn-primary start">
+                                    <i class="fas fa-upload"></i>
+                                    <span>Iníciar</span>
+                                  </button>
+                                  <button data-dz-remove class="btn btn-warning cancel">
+                                    <i class="fas fa-times-circle"></i>
+                                    <span>Cancelar</span>
+                                  </button>
+                                  <button data-dz-remove class="btn btn-danger delete">
+                                    <i class="fas fa-trash"></i>
+                                    <span>Excluir</span>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                          Visit <a href="https://www.dropzonejs.com">dropzone.js documentation</a> for more examples and information about the plugin.
+                        </div>
+                      </div>
+                      <!-- /.card -->
                     </div>
-                    <div class="card-body">
-                        <button class="btn btn-primary">Novo Modelo</button>
-                        <hr>
-
-                        Tudo começou com o Big-Bang a muito tempo atrás....
-                    </div>
-                    <!-- /.card-body -->
-                </div>
+                  </div>
             </section>
         </div>
         <!-- /.content-wrapper -->
@@ -175,17 +241,18 @@
         $.widget.bridge('uibutton', $.ui.button)
     </script>
     <!-- Bootstrap 4 -->
-    <script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Tempusdominus Bootstrap 4 -->
-    <script src="../assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>    
     <!-- overlayScrollbars -->
     <script src="../assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../assets/js/adminlte.js"></script>
      <!--Dark Mode control-->
      <script src="../assets/js/darkModeController.js"></script>
-    <!--Loading 3D Models and View-->
-    <script type="module" src="../assets/js/3DLoadingFiles.js"></script>
+    <!--Save 3D Models on directory-->
+    <script type="module" src="../assets/js/save3DModels.js"></script>
+    <!--Dropzone-->
+    <script type="module" src="../assets/js/dropzone.min.js"></script>
+
 </body>
 
 </html>
